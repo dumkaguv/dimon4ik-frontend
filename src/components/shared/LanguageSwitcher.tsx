@@ -70,9 +70,8 @@ export const LanguageSwitcher = () => {
         <TooltipTrigger asChild>
           <DropdownMenuTrigger asChild>
             <Button
-              variant="link"
-              size="icon"
-              className="hover:bg-primary/25 w-fit text-white"
+              variant="text"
+              className="hover:bg-primary/25 w-fit max-sm:!px-2"
             >
               {currentLanguage && (
                 <>
