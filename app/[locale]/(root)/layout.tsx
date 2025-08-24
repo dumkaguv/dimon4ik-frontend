@@ -11,7 +11,9 @@ export default function Layout({
     <Container>
       <Header />
 
-      <main className="pb-5 max-[1280px]:px-4">{children}</main>
+      <main className="flex min-h-[calc(100dvh-var(--header-height))] py-5 max-[1280px]:px-2">
+        {children}
+      </main>
     </Container>
   )
 }

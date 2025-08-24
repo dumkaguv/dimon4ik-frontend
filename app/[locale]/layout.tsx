@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <NextTopLoader />

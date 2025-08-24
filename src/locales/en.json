@@ -26,5 +26,11 @@
   "validationRequired": "This field is required",
   "validationPasswordMismatch": "Passwords do not match",
   "dontHaveAccount": "Don't have an account?",
-  "clickHereToRegister": "Click here to register"
+  "clickHereToRegister": "Click here to register",
+  "buyCryptoWithCard": "Buy cryptocurrency with card",
+  "dailyLimit": "From $50 to $5 000 per day.",
+  "acceptedCards": "We accept Visa and Mastercard.",
+  "supportedCurrencies": "Payment only in MDL.",
+  "cryptoDelivery": "We send cryptocurrency to your address.",
+  "requirements": "Required: photo of ID card (both sides)."
 }

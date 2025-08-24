@@ -37,7 +37,7 @@ export const LoginForm = () => {
   }
 
   return (
-    <Card className="mx-auto flex max-w-[650px] flex-col">
+    <Card className="mx-auto flex h-fit max-w-[650px] flex-col">
       <FormHeader
         titleKey="login"
         accountTextKey="dontHaveAccount"
