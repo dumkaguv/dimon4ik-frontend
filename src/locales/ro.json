@@ -37,5 +37,9 @@
   "registerSuccess": "Înregistrarea a fost realizată cu succes.",
   "emailSentSuccess": "Email-ul a fost trimis cu succes.",
   "username": "Nume de utilizator",
-  "loginSuccess": "Autentificarea a fost realizată cu succes."
+  "loginSuccess": "Autentificarea a fost realizată cu succes.",
+  "profile": "Profil",
+  "logout": "Deconectare",
+  "verification": "Verificare",
+  "logoutSuccess": "Deconectare cu succes"
 }

@@ -17,6 +17,7 @@ export const paths = {
   },
 
   profile: {
-    root: `${AUTHORIZED}${PROFILE_PREFIX}`
+    root: `${AUTHORIZED}${PROFILE_PREFIX}`,
+    verification: `${AUTHORIZED}${PROFILE_PREFIX}/verification`
   }
 } as const

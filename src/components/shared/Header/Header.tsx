@@ -12,14 +12,19 @@ import {
 } from '@/src/components/shared'
 import { Button } from '@/src/components/ui'
 import { paths } from '@/src/config/paths'
+import { useAuthStore } from '@/src/stores'
 import { defineHeaderHeightCssVar } from '@/src/utils'
 
+import { Profile } from './Profile'
+
 export const Header = () => {
+  const { user } = useAuthStore()
+
+  const t = useTranslations()
+
   useEffect(() => {
     defineHeaderHeightCssVar()
   }, [])
-
-  const t = useTranslations()
 
   return (
     <header className="bg-card sticky top-0 z-10 flex items-center justify-between gap-5 rounded-b-md p-2 shadow-md">
@@ -29,9 +34,13 @@ export const Header = () => {
         <LanguageSwitcher />
         <ThemeSwitcher />
 
-        <Button asChild>
-          <LocalizedLink href={paths.auth.login}>{t('login')}</LocalizedLink>
-        </Button>
+        {user ? (
+          <Profile />
+        ) : (
+          <Button asChild>
+            <LocalizedLink href={paths.auth.login}>{t('login')}</LocalizedLink>
+          </Button>
+        )}
       </div>
     </header>
   )

@@ -37,5 +37,9 @@
   "registerSuccess": "Registration completed successfully.",
   "emailSentSuccess": "Email sent successfully.",
   "username": "Username",
-  "loginSuccess": "Login successful."
+  "loginSuccess": "Login successful.",
+  "profile": "Profile",
+  "logout": "Logout",
+  "verification": "Verification",
+  "logoutSuccess": "Logged out successfully"
 }

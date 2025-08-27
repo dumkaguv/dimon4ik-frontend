@@ -7,6 +7,9 @@
   --color-gray: oklch(0.96 0.0063 255.48);
   --color-accent: oklch(0.5669 0.2057 258.44);
   --color-light-blue: oklch(0.9522 0.02 257.47);
+
+  --header-height: 52px; /* <- default value, it's still gonna be calculated with JS */
+
   --transition-duration: 0.2s;
 
   --radius: 0.5rem;

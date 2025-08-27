@@ -2,8 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
 import toast from 'react-hot-toast'
@@ -15,6 +14,7 @@ import { paths } from '@/src/config/paths'
 
 import { createLoginFormSchema } from '@/src/features/auth/zod'
 
+import { useNavigate } from '@/src/hooks'
 import { Api } from '@/src/services/apiClient'
 
 import { useAuthStore } from '@/src/stores'
@@ -33,10 +33,10 @@ export type LoginFormValues = {
 export const LoginForm = () => {
   const { setUser } = useAuthStore()
 
+  const navigate = useNavigate()
+
   const t = useTranslations()
   const schema = createLoginFormSchema(t)
-  const router = useRouter()
-  const locale = useLocale()
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(schema),
@@ -46,7 +46,6 @@ export const LoginForm = () => {
     }
   })
 
-  const urlRedirectAfterLogin = `/${locale}${paths.profile.root}`
   const { mutateAsync: login, isPending } = useMutation({
     mutationFn: (payload: LoginPayload) => Api.auth.login(payload),
     onSuccess: ({ data, message }) => {
@@ -54,7 +53,7 @@ export const LoginForm = () => {
       if (data?.tokens?.accessToken && userData) {
         saveAccessToken(data.tokens.accessToken)
         setUser(userData)
-        router.push(urlRedirectAfterLogin)
+        navigate(paths.profile.root)
         toast.success(message ?? t('loginSuccess'))
       }
     },

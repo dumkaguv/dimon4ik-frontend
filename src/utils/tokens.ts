@@ -15,3 +15,11 @@ export const saveAccessToken = (token: string) => {
 
   localStorage.setItem(LocalStorage.token, token)
 }
+
+export const removeAccessToken = () => {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  localStorage.removeItem(LocalStorage.token)
+}

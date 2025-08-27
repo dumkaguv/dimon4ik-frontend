@@ -37,5 +37,9 @@
   "registerSuccess": "Регистрация прошла успешно.",
   "emailSentSuccess": "Письмо успешно отправлено.",
   "username": "Имя пользователя",
-  "loginSuccess": "Вход выполнен успешно."
+  "loginSuccess": "Вход выполнен успешно.",
+  "profile": "Профиль",
+  "logout": "Выйти",
+  "verification": "Проверка",
+  "logoutSuccess": "Вы успешно вышли"
 }
