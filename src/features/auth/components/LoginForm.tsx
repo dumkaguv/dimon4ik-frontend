@@ -46,7 +46,7 @@ export const LoginForm = () => {
     }
   })
 
-  const urlRedirectAfterLogin = `${process.env.NEXT_PUBLIC_FRONT_URL}/${locale}/profile`
+  const urlRedirectAfterLogin = `/${locale}${paths.profile.root}`
   const { mutateAsync: login, isPending } = useMutation({
     mutationFn: (payload: LoginPayload) => Api.auth.login(payload),
     onSuccess: ({ data, message }) => {

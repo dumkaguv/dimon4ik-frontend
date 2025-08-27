@@ -1,6 +1,17 @@
 import { LocalStorage } from '@/src/constants'
 
-export const getAccessToken = () => localStorage.getItem(LocalStorage.token)
+export const getAccessToken = (): string | null => {
+  if (typeof window === 'undefined') {
+    return null
+  }
 
-export const saveAccessToken = (token: string) =>
+  return localStorage.getItem(LocalStorage.token)
+}
+
+export const saveAccessToken = (token: string) => {
+  if (typeof window === 'undefined') {
+    return
+  }
+
   localStorage.setItem(LocalStorage.token, token)
+}

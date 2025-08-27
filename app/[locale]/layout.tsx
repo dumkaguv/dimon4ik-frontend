@@ -6,7 +6,11 @@ import NextTopLoader from 'nextjs-toploader'
 
 import { Toaster } from 'react-hot-toast'
 
-import { TanstackProvider, ThemeProvider } from '@/src/config/providers'
+import {
+  SessionProvider,
+  TanstackProvider,
+  ThemeProvider
+} from '@/src/config/providers'
 
 import { routing } from '@/src/i18n/routing'
 
@@ -44,9 +48,12 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <TanstackProvider>
-            <NextTopLoader />
-            <Toaster />
-            <ThemeProvider>{children}</ThemeProvider>
+            <SessionProvider>
+              <ThemeProvider>{children}</ThemeProvider>
+
+              <NextTopLoader />
+              <Toaster />
+            </SessionProvider>
           </TanstackProvider>
         </NextIntlClientProvider>
       </body>
