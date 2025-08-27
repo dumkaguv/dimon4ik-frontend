@@ -4,11 +4,13 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import NextTopLoader from 'nextjs-toploader'
 
-import { ThemeProvider } from '@/src/config/providers'
+import { Toaster } from 'react-hot-toast'
+
+import { TanstackProvider, ThemeProvider } from '@/src/config/providers'
+
 import { routing } from '@/src/i18n/routing'
 
 import type { ReactNode } from 'react'
-
 import './globals.css'
 
 const geistSans = Geist({
@@ -41,8 +43,11 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <NextTopLoader />
-          <ThemeProvider>{children}</ThemeProvider>
+          <TanstackProvider>
+            <NextTopLoader />
+            <Toaster />
+            <ThemeProvider>{children}</ThemeProvider>
+          </TanstackProvider>
         </NextIntlClientProvider>
       </body>
     </html>

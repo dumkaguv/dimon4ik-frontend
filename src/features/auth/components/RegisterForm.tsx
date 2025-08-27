@@ -1,8 +1,11 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
+
+import toast from 'react-hot-toast'
 
 import { Card } from '@/src/components/shared'
 import { Button, Form } from '@/src/components/ui'
@@ -11,11 +14,18 @@ import { paths } from '@/src/config/paths'
 
 import { createRegisterFormSchema } from '@/src/features/auth/zod'
 
+import { Api } from '@/src/services/apiClient'
+
+import { showApiErrors } from '@/src/utils'
+
 import { FormHeader } from './FormHeader'
 import { RegisterFormItems } from './RegisterFormItems'
 
+import type { RegistrationPayload } from '@/src/services/auth'
+
 export type RegisterFormValues = {
   email: string
+  username: string
   password: string
   confirmPassword: string
 }
@@ -29,13 +39,21 @@ export const RegisterForm = () => {
     resolver: zodResolver(schema),
     defaultValues: {
       email: '',
+      username: '',
       password: '',
       confirmPassword: ''
     }
   })
 
-  const onSubmit = () => {
-    console.log(form.getValues())
+  const { mutateAsync: register, isPending } = useMutation({
+    mutationFn: (payload: RegistrationPayload) => Api.auth.register(payload),
+    onSuccess: () => toast.success(t('emailSentSuccess'), { duration: 10000 }),
+    onError: (e) => showApiErrors(e, t)
+  })
+
+  const onSubmit = async () => {
+    const payload = form.getValues()
+    await register(payload)
   }
 
   return (
@@ -54,7 +72,7 @@ export const RegisterForm = () => {
         >
           <RegisterFormItems form={form} />
 
-          <Button type="submit" className="mt-4">
+          <Button type="submit" loading={isPending} className="mt-4">
             {t('register')}
           </Button>
         </form>

@@ -44,6 +44,20 @@ export const RegisterFormItems = ({ form }: Props) => {
 
       <FormField
         control={form.control}
+        name="username"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>{t('username')}</FormLabel>
+            <FormControl>
+              <Input placeholder="josh" autoComplete="username" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
         name="password"
         render={({ field }) => (
           <FormItem>

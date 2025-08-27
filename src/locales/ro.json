@@ -32,5 +32,10 @@
   "acceptedCards": "Acceptăm carduri Visa, Mastercard.",
   "supportedCurrencies": "Plata doar în MDL.",
   "cryptoDelivery": "Trimitem criptovaluta la adresa dvs.",
-  "requirements": "Este obligatoriu să furnizați: poza buletinului pe ambele părți."
+  "requirements": "Este obligatoriu să furnizați: poza buletinului pe ambele părți.",
+  "errorGeneric": "A apărut o eroare. Vă rugăm să încercați din nou.",
+  "registerSuccess": "Înregistrarea a fost realizată cu succes.",
+  "emailSentSuccess": "Email-ul a fost trimis cu succes.",
+  "username": "Nume de utilizator",
+  "loginSuccess": "Autentificarea a fost realizată cu succes."
 }

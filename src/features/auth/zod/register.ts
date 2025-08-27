@@ -10,6 +10,7 @@ export const createRegisterFormSchema = (
   z
     .object({
       email: z.email({ error: t('validationEmailInvalid') }),
+      username: z.string().min(1, { error: t('validationRequired') }),
       password: createPasswordSchema(t),
       confirmPassword: z.string().min(1, { error: t('validationRequired') })
     })
