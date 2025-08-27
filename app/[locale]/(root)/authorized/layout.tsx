@@ -6,11 +6,11 @@ import { Cookies } from '@/src/constants'
 
 import type { ReactNode } from 'react'
 
-export default async function AuthLayout({
-  children
-}: Readonly<{
+type Props = {
   children: ReactNode
-}>) {
+}
+
+export default async function Layout({ children }: Props) {
   const cookies = await nextCookies()
   const token = cookies.get(Cookies.refreshToken)?.value
   const locale = cookies.get(Cookies.locale)?.value

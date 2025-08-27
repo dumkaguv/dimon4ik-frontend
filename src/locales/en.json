@@ -27,12 +27,6 @@
   "validationPasswordMismatch": "Passwords do not match",
   "dontHaveAccount": "Don't have an account?",
   "clickHereToRegister": "Click here to register",
-  "buyCryptoWithCard": "Buy cryptocurrency with card",
-  "dailyLimit": "From $50 to $5 000 per day.",
-  "acceptedCards": "We accept Visa and Mastercard.",
-  "supportedCurrencies": "Payment only in MDL.",
-  "cryptoDelivery": "We send cryptocurrency to your address.",
-  "requirements": "Required: photo of ID card (both sides).",
   "errorGeneric": "An error occurred. Please try again.",
   "registerSuccess": "Registration completed successfully.",
   "emailSentSuccess": "Email sent successfully.",
@@ -41,5 +35,19 @@
   "profile": "Profile",
   "logout": "Logout",
   "verification": "Verification",
-  "logoutSuccess": "Logged out successfully"
+  "logoutSuccess": "Logged out successfully",
+  "validationNumberError": "Invalid number",
+  "youPay": "You pay",
+  "buy": "Buy",
+  "youMustAcceptTerms": "You must accept the terms and conditions",
+  "acceptTerms": "Accept terms and conditions",
+
+  "home": {
+    "buyCryptoWithCard": "Buy cryptocurrency with card",
+    "dailyLimit": "From $50 to $5 000 per day.",
+    "acceptedCards": "We accept Visa and Mastercard.",
+    "supportedCurrencies": "Payment only in MDL.",
+    "cryptoDelivery": "We send cryptocurrency to your address.",
+    "requirements": "Required: photo of ID card (both sides)."
+  }
 }

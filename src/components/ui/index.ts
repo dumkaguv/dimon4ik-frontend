@@ -1,7 +1,11 @@
 export { Button } from './Button'
 export { Label } from './Label'
 export { Input } from './Input'
+export { Checkbox } from './Checkbox'
+export { Separator } from './Separator'
+export { Toaster } from './Sonner'
 
 export * from './Form'
 export * from './Tooltip'
 export * from './DropdownMenu'
+export * from './Select'

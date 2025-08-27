@@ -27,12 +27,6 @@
   "validationPasswordMismatch": "Пароли не совпадают",
   "dontHaveAccount": "У вас еще нет аккаунта?",
   "clickHereToRegister": "Нажмите здесь, чтобы зарегистрироваться",
-  "buyCryptoWithCard": "Покупай криптовалюту по карте",
-  "dailyLimit": "От 50 $ до 5 000 $ в день.",
-  "acceptedCards": "Принимаем карты Visa, Mastercard.",
-  "supportedCurrencies": "Оплата только в MDL.",
-  "cryptoDelivery": "Отправляем криптовалюты на ваш адрес.",
-  "requirements": "Обязательно предоставление: фото булетина с двух сторон.",
   "errorGeneric": "Произошла ошибка. Пожалуйста, попробуйте ещё раз.",
   "registerSuccess": "Регистрация прошла успешно.",
   "emailSentSuccess": "Письмо успешно отправлено.",
@@ -41,5 +35,19 @@
   "profile": "Профиль",
   "logout": "Выйти",
   "verification": "Проверка",
-  "logoutSuccess": "Вы успешно вышли"
+  "logoutSuccess": "Вы успешно вышли",
+  "validationNumberError": "Неверное число",
+  "youPay": "Вы платите",
+  "buy": "Купить",
+  "youMustAcceptTerms": "Вы должны принять условия использования",
+  "acceptTerms": "Принять условия использования",
+
+  "home": {
+    "buyCryptoWithCard": "Покупай криптовалюту по карте",
+    "dailyLimit": "От 50 $ до 5 000 $ в день.",
+    "acceptedCards": "Принимаем карты Visa, Mastercard.",
+    "supportedCurrencies": "Оплата только в MDL.",
+    "cryptoDelivery": "Отправляем криптовалюты на ваш адрес.",
+    "requirements": "Обязательно предоставление: фото булетина с двух сторон."
+  }
 }

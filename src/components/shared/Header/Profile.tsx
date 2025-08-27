@@ -5,7 +5,7 @@ import { LogOut, ShieldCheck, SquareUserRound, User } from 'lucide-react'
 
 import { useTranslations } from 'next-intl'
 
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 
 import {
   Button,

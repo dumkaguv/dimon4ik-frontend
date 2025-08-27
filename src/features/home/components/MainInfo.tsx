@@ -1,28 +1,29 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-
 import { Typography } from '@/src/components/shared'
 
 import type { ComponentProps } from 'react'
 
 const { Title, Paragraph } = Typography
 
-export const MainInfo = (props: ComponentProps<'section'>) => {
-  const t = useTranslations()
+type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: Record<string, any>
+} & ComponentProps<'section'>
 
+export const MainInfo = ({ t, ...props }: Props) => {
   const details = [
-    { label: t('dailyLimit') },
-    { label: t('acceptedCards') },
-    { label: t('supportedCurrencies') },
-    { label: t('cryptoDelivery') },
-    { label: t('requirements') }
+    { label: t.home.dailyLimit },
+    { label: t.home.acceptedCards },
+    { label: t.home.supportedCurrencies },
+    { label: t.home.cryptoDelivery },
+    { label: t.home.requirements }
   ]
 
   return (
     <section {...props}>
       <Title level={2} className="mb-6">
-        {t('buyCryptoWithCard')}
+        {t.home.buyCryptoWithCard}
       </Title>
 
       <ul className="list-disc space-y-2 pl-6">

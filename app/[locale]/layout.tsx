@@ -4,8 +4,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import NextTopLoader from 'nextjs-toploader'
 
-import { Toaster } from 'react-hot-toast'
-
+import { Toaster } from '@/src/components/ui'
 import {
   SessionProvider,
   TanstackProvider,
@@ -15,6 +14,7 @@ import {
 import { routing } from '@/src/i18n/routing'
 
 import type { ReactNode } from 'react'
+
 import './globals.css'
 
 const geistSans = Geist({
@@ -27,13 +27,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin']
 })
 
-export default async function RootLayout({
-  children,
-  params
-}: Readonly<{
+type Props = {
   children: ReactNode
   params: Promise<{ locale: string }>
-}>) {
+}
+
+export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params
   const messages = await getMessages({ locale })
 
@@ -52,7 +51,7 @@ export default async function RootLayout({
               <ThemeProvider>{children}</ThemeProvider>
 
               <NextTopLoader />
-              <Toaster />
+              <Toaster position="top-center" duration={3000} richColors />
             </SessionProvider>
           </TanstackProvider>
         </NextIntlClientProvider>

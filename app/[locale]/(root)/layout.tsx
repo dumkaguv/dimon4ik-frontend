@@ -2,11 +2,11 @@ import { Container, Header } from '@/src/components/shared'
 
 import type { ReactNode } from 'react'
 
-export default function Layout({
-  children
-}: Readonly<{
+type Props = {
   children: ReactNode
-}>) {
+}
+
+export default function Layout({ children }: Props) {
   return (
     <Container>
       <Header />

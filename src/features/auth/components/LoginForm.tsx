@@ -5,14 +5,17 @@ import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 
 import { Card } from '@/src/components/shared'
 import { Button, Form } from '@/src/components/ui'
 
 import { paths } from '@/src/config/paths'
 
-import { createLoginFormSchema } from '@/src/features/auth/zod'
+import {
+  type LoginFormSchema,
+  createLoginFormSchema
+} from '@/src/features/auth/zod'
 
 import { useNavigate } from '@/src/hooks'
 import { Api } from '@/src/services/apiClient'
@@ -25,11 +28,6 @@ import { LoginFormItems } from './LoginFormItems'
 
 import type { LoginPayload } from '@/src/services/auth'
 
-export type LoginFormValues = {
-  email: string
-  password: string
-}
-
 export const LoginForm = () => {
   const { setUser } = useAuthStore()
 
@@ -38,7 +36,7 @@ export const LoginForm = () => {
   const t = useTranslations()
   const schema = createLoginFormSchema(t)
 
-  const form = useForm<LoginFormValues>({
+  const form = useForm<LoginFormSchema>({
     resolver: zodResolver(schema),
     defaultValues: {
       email: '',

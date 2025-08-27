@@ -27,12 +27,6 @@
   "validationPasswordMismatch": "Parolele nu coincid",
   "dontHaveAccount": "Nu ai încă un cont?",
   "clickHereToRegister": "Click aici pentru a te înregistra",
-  "buyCryptoWithCard": "Cumpără criptovalută cu cardul",
-  "dailyLimit": "De la 50 $ până la 5 000 $ pe zi.",
-  "acceptedCards": "Acceptăm carduri Visa, Mastercard.",
-  "supportedCurrencies": "Plata doar în MDL.",
-  "cryptoDelivery": "Trimitem criptovaluta la adresa dvs.",
-  "requirements": "Este obligatoriu să furnizați: poza buletinului pe ambele părți.",
   "errorGeneric": "A apărut o eroare. Vă rugăm să încercați din nou.",
   "registerSuccess": "Înregistrarea a fost realizată cu succes.",
   "emailSentSuccess": "Email-ul a fost trimis cu succes.",
@@ -41,5 +35,19 @@
   "profile": "Profil",
   "logout": "Deconectare",
   "verification": "Verificare",
-  "logoutSuccess": "Deconectare cu succes"
+  "logoutSuccess": "Deconectare cu succes",
+  "validationNumberError": "Număr invalid",
+  "youPay": "Plătiți",
+  "buy": "Cumpără",
+  "youMustAcceptTerms": "Trebuie să accepți termenii și condițiile",
+  "acceptTerms": "Acceptă termenii și condițiile",
+
+  "home": {
+    "buyCryptoWithCard": "Cumpără criptovalută cu cardul",
+    "dailyLimit": "De la 50 $ până la 5 000 $ pe zi.",
+    "acceptedCards": "Acceptăm carduri Visa, Mastercard.",
+    "supportedCurrencies": "Plata doar în MDL.",
+    "cryptoDelivery": "Trimitem criptovaluta la adresa dvs.",
+    "requirements": "Este obligatoriu să furnizați: poza buletinului pe ambele părți."
+  }
 }

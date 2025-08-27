@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 
 import { Card } from '@/src/components/shared'
 import { Button, Form } from '@/src/components/ui'

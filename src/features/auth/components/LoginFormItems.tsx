@@ -12,11 +12,11 @@ import {
   Input
 } from '@/src/components/ui'
 
-import type { LoginFormValues } from './LoginForm'
+import type { LoginFormSchema } from '@/src/features/auth/zod'
 import type { UseFormReturn } from 'react-hook-form'
 
 type Props = {
-  form: UseFormReturn<LoginFormValues>
+  form: UseFormReturn<LoginFormSchema>
 }
 
 export const LoginFormItems = ({ form }: Props) => {
