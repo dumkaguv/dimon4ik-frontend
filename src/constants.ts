@@ -9,6 +9,11 @@ export const Cookies = {
 
 export const QueryKeys = {
   users: {
-    root: 'users'
+    root: 'users',
+    me: 'me'
+  },
+
+  crypto: {
+    root: 'crypto'
   }
 } as const

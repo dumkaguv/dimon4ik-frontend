@@ -48,6 +48,7 @@
     "acceptedCards": "We accept Visa and Mastercard.",
     "supportedCurrencies": "Payment only in MDL.",
     "cryptoDelivery": "We send cryptocurrency to your address.",
-    "requirements": "Required: photo of ID card (both sides)."
+    "requirements": "Required: photo of ID card (both sides).",
+    "accept": "Accept"
   }
 }

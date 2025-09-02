@@ -1,7 +1,13 @@
 'use client'
 
+import { CreditCard } from 'lucide-react'
+
+import Image from 'next/image'
+
+import paymentsImg from '@/public/images/payments.png'
 import { Card, Typography } from '@/src/components/shared'
 
+import { Separator } from '@/src/components/ui'
 import { cn } from '@/src/utils'
 
 import { BuyCryptoForm } from './BuyCryptoForm'
@@ -28,6 +34,20 @@ export const BuyCrypto = ({ t, className, ...props }: Props) => {
         </Title>
 
         <BuyCryptoForm />
+
+        <Separator />
+
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <CreditCard size={12} />
+            <Text className="text-muted-foreground text-sm">
+              {t.home.accept}
+            </Text>
+          </div>
+          <div>
+            <Image src={paymentsImg} width={44} height={30} alt="" />
+          </div>
+        </div>
       </Card>
     </section>
   )

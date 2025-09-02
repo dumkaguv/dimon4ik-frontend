@@ -1,7 +1,9 @@
 import * as auth from './auth'
+import * as crypto from './crypto'
 import * as users from './users'
 
 export const Api = {
   auth,
-  users
+  users,
+  crypto
 } as const

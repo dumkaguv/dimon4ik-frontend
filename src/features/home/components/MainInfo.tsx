@@ -21,7 +21,10 @@ export const MainInfo = ({ t, ...props }: Props) => {
   ]
 
   return (
-    <section {...props}>
+    <section
+      className="my-auto flex w-full flex-col items-center justify-center"
+      {...props}
+    >
       <Title level={2} className="mb-6">
         {t.home.buyCryptoWithCard}
       </Title>

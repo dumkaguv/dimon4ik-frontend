@@ -13,6 +13,7 @@ export const paths = {
 
   users: {
     root: `${USERS_PREFIX}`,
+    me: `${USERS_PREFIX}/me`,
     byId: (id: string) => `${USERS_PREFIX}/${id}`
   },
 

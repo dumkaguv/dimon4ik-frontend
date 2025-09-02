@@ -11,8 +11,8 @@ export default async function Home({ params }: Props) {
   const t = await getMessages({ locale })
 
   return (
-    <div className="flex w-full gap-10">
-      <MainInfo t={t} className="my-auto w-full" />
+    <div className="flex w-full gap-10 max-lg:flex-col">
+      <MainInfo t={t} />
 
       <BuyCrypto t={t} className="bg-card my-auto h-full w-full rounded-lg" />
     </div>

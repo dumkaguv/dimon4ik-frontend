@@ -48,6 +48,7 @@
     "acceptedCards": "Acceptăm carduri Visa, Mastercard.",
     "supportedCurrencies": "Plata doar în MDL.",
     "cryptoDelivery": "Trimitem criptovaluta la adresa dvs.",
-    "requirements": "Este obligatoriu să furnizați: poza buletinului pe ambele părți."
+    "requirements": "Este obligatoriu să furnizați: poza buletinului pe ambele părți.",
+    "accept": "Acceptăm"
   }
 }

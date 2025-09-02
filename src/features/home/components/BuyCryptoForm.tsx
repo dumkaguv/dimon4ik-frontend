@@ -1,4 +1,7 @@
+'use client'
+
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 
 import { useForm } from 'react-hook-form'
@@ -15,7 +18,9 @@ import {
   Input,
   Label
 } from '@/src/components/ui'
+import { QueryKeys } from '@/src/constants'
 import { createBuyCryptoSchema } from '@/src/features/home/zod'
+import { Api } from '@/src/services/apiClient'
 
 export const BuyCryptoForm = () => {
   const t = useTranslations()
@@ -29,6 +34,13 @@ export const BuyCryptoForm = () => {
       termsAccepted: false
     }
   })
+
+  const { data: cryptos } = useQuery({
+    queryKey: [QueryKeys.crypto.root],
+    queryFn: Api.crypto.getCryptos
+  })
+
+  console.log(cryptos)
 
   const termsAccepted = form.watch('termsAccepted')
 
