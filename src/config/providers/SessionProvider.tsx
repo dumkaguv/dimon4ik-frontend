@@ -15,19 +15,19 @@ export const SessionProvider = ({ children }: PropsWithChildren) => {
   const accessToken = getAccessToken()
   const isAuth = Boolean(accessToken)
 
-  const { data: user, isPending } = useQuery({
+  const { data: user, isLoading } = useQuery({
     queryKey: [QueryKeys.users.me, accessToken],
     queryFn: Api.users.getUser,
     enabled: isAuth
   })
 
   useEffect(() => {
-    setIsPendingUser(isPending)
+    setIsPendingUser(isLoading)
 
     if (user?.data) {
       setUser(user.data)
     }
-  }, [setUser, setIsPendingUser, isPending, user?.data])
+  }, [setUser, setIsPendingUser, isLoading, user?.data])
 
   return children
 }

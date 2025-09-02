@@ -26,7 +26,7 @@ import { useAuthStore } from '@/src/stores'
 import { removeAccessToken, showApiErrors } from '@/src/utils'
 
 export const Profile = () => {
-  const { setUser } = useAuthStore()
+  const { setUser, setIsPendingUser } = useAuthStore()
 
   const navigate = useNavigate()
 
@@ -37,6 +37,7 @@ export const Profile = () => {
     onSuccess: () => {
       removeAccessToken()
       setUser(null)
+      setIsPendingUser(false)
       queryClient.cancelQueries()
       queryClient.clear()
       toast.success(t('logoutSuccess'))

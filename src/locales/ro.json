@@ -41,6 +41,13 @@
   "buy": "Cumpără",
   "youMustAcceptTerms": "Trebuie să accepți termenii și condițiile",
   "acceptTerms": "Acceptă termenii și condițiile",
+  "buyCrypto": "Cumpără Crypto",
+  "notVerified": "Neconfirmat",
+  "verified": "Verificat",
+  "verificationKYC": "Verificare KYC",
+  "documentFrontSide": "Fața documentului",
+  "documentBackSide": "Spatele documentului",
+  "preview": "Previzualizare",
 
   "home": {
     "buyCryptoWithCard": "Cumpără criptovalută cu cardul",

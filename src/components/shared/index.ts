@@ -5,6 +5,7 @@ export { ThemeSwitcher } from './ThemeSwitcher'
 export { LocalizedLink } from './LocalizedLink'
 export { Card } from './Card'
 export { Logo } from './Logo'
+export { ImagePreview } from './ImagePreview'
 
 export * from './Inputs'
 export * from './Typography'

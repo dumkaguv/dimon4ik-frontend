@@ -10,7 +10,7 @@ import {
   Logo,
   ThemeSwitcher
 } from '@/src/components/shared'
-import { Button } from '@/src/components/ui'
+import { Button, Skeleton } from '@/src/components/ui'
 import { paths } from '@/src/config/paths'
 import { useAuthStore } from '@/src/stores'
 import { defineHeaderHeightCssVar } from '@/src/utils'
@@ -18,13 +18,15 @@ import { defineHeaderHeightCssVar } from '@/src/utils'
 import { Profile } from './Profile'
 
 export const Header = () => {
-  const { user } = useAuthStore()
+  const { user, isPendingUser } = useAuthStore()
 
   const t = useTranslations()
 
   useEffect(() => {
     defineHeaderHeightCssVar()
   }, [])
+
+  console.log(isPendingUser)
 
   return (
     <header className="bg-card sticky top-0 z-10 flex items-center justify-between gap-5 rounded-b-md p-2 shadow-md">
@@ -34,9 +36,10 @@ export const Header = () => {
         <LanguageSwitcher />
         <ThemeSwitcher />
 
-        {user ? (
-          <Profile />
-        ) : (
+        {isPendingUser ? <Skeleton className="size-8 rounded-md" /> : null}
+
+        {user && <Profile />}
+        {!user && !isPendingUser && (
           <Button asChild>
             <LocalizedLink href={paths.auth.login}>{t('login')}</LocalizedLink>
           </Button>

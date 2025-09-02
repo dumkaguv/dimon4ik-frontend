@@ -41,6 +41,13 @@
   "buy": "Buy",
   "youMustAcceptTerms": "You must accept the terms and conditions",
   "acceptTerms": "Accept terms and conditions",
+  "buyCrypto": "Buy Crypto",
+  "notVerified": "Not Verified",
+  "verified": "Verified",
+  "verificationKYC": "KYC Verification",
+  "documentFrontSide": "Document Front Side",
+  "documentBackSide": "Document Back Side",
+  "preview": "Preview",
 
   "home": {
     "buyCryptoWithCard": "Buy cryptocurrency with card",

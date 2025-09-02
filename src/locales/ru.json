@@ -41,6 +41,13 @@
   "buy": "Купить",
   "youMustAcceptTerms": "Вы должны принять условия использования",
   "acceptTerms": "Принять условия использования",
+  "buyCrypto": "Купить криптовалюту",
+  "notVerified": "Не подтвержден",
+  "verified": "Подтвержден",
+  "verificationKYC": "Верификация KYC",
+  "documentFrontSide": "Лицевая сторона документа",
+  "documentBackSide": "Обратная сторона документа",
+  "preview": "Превью",
 
   "home": {
     "buyCryptoWithCard": "Покупай криптовалюту по карте",
