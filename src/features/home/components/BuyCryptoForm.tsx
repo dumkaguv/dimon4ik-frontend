@@ -39,8 +39,6 @@ export const BuyCryptoForm = () => {
     queryFn: Api.crypto.getCryptos
   })
 
-  console.log(cryptos)
-
   const termsAccepted = form.watch('termsAccepted')
 
   const onSubmit = () => {

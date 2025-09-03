@@ -58,6 +58,12 @@
   "clickToSeeMore": "Click to see more",
   "documents": "Documents",
   "users": "Users",
+  "acceptDocuments": "Accept documents",
+  "notSubmitted": "Not submitted",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "areYouAbsolutelySure": "Are you absolutely sure?",
+  "success": "Success",
 
   "home": {
     "buyCryptoWithCard": "Buy cryptocurrency with card",

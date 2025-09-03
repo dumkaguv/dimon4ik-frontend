@@ -3,10 +3,10 @@
 import { useMutation } from '@tanstack/react-query'
 import {
   LogOut,
-  Settings,
   ShieldCheck,
   SquareUserRound,
-  User
+  User,
+  UserCog
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
@@ -79,7 +79,7 @@ export const Profile = () => {
   if (user?.role === 'ADMIN') {
     menuItems.push({
       key: 'admin',
-      icon: <Settings size={16} className="text-primary" />,
+      icon: <UserCog size={16} className="text-primary" />,
       label: t('users'),
       href: paths.profile.users
     })

@@ -18,5 +18,9 @@ export const ApiRoutes = {
 
   upload: {
     root: '/upload'
+  },
+
+  documents: {
+    root: '/documents'
   }
 } as const

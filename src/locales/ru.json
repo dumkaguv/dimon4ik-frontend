@@ -58,6 +58,12 @@
   "clickToSeeMore": "Нажмите, чтобы увидеть больше",
   "documents": "Документы",
   "users": "Пользователи",
+  "acceptDocuments": "Принять документы",
+  "notSubmitted": "Не отправлено",
+  "cancel": "Отмена",
+  "confirm": "Подтвердить",
+  "areYouAbsolutelySure": "Вы абсолютно уверены?",
+  "success": "Успех",
 
   "home": {
     "buyCryptoWithCard": "Покупай криптовалюту по карте",

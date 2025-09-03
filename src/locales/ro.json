@@ -58,6 +58,12 @@
   "clickToSeeMore": "Click pentru a vedea mai mult",
   "documents": "Documente",
   "users": "Utilizatori",
+  "acceptDocuments": "Acceptă documentele",
+  "notSubmitted": "Nu a fost trimis",
+  "cancel": "Anulează",
+  "confirm": "Confirmă",
+  "areYouAbsolutelySure": "Ești absolut sigur?",
+  "success": "Succes",
 
   "home": {
     "buyCryptoWithCard": "Cumpără criptovalută cu cardul",

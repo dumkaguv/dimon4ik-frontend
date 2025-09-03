@@ -6,6 +6,7 @@ export { LocalizedLink } from './LocalizedLink'
 export { Card } from './Card'
 export { Logo } from './Logo'
 export { ImagePreview } from './ImagePreview'
+export { ConfirmModal } from './ConfirmModal'
 
 export * from './Inputs'
 export * from './Typography'

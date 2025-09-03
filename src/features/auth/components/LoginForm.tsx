@@ -51,7 +51,9 @@ export const LoginForm = () => {
       if (data?.tokens?.accessToken && userData) {
         saveAccessToken(data.tokens.accessToken)
         setUser(userData)
-        navigate(paths.profile.root)
+        navigate(
+          userData.role === 'USER' ? paths.profile.root : paths.profile.users
+        )
         toast.success(message ?? t('loginSuccess'))
       }
     },

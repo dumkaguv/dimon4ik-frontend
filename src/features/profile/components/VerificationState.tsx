@@ -1,3 +1,5 @@
+'use client'
+
 import { Loader2, ShieldCheck } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
