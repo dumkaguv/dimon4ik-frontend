@@ -48,6 +48,8 @@
   "documentFrontSide": "Fața documentului",
   "documentBackSide": "Spatele documentului",
   "preview": "Previzualizare",
+  "fileTooLarge": "Dimensiunea fișierului trebuie să fie mai mică de {maxFileSizeMb}MB",
+  "fileInvalidType": "Sunt acceptate doar formatele .jpg, .jpeg, .png, .webp",
 
   "home": {
     "buyCryptoWithCard": "Cumpără criptovalută cu cardul",

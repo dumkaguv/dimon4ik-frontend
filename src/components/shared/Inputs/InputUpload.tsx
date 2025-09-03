@@ -1,7 +1,12 @@
 'use client'
 
-import { type ComponentProps, useState } from 'react'
-import { useFormContext } from 'react-hook-form'
+import { useTranslations } from 'next-intl'
+import { type ChangeEvent, type ComponentProps, useState } from 'react'
+import {
+  type ControllerRenderProps,
+  type FieldValues,
+  useFormContext
+} from 'react-hook-form'
 
 import {
   FormControl,
@@ -17,6 +22,7 @@ type UploadInputProps = {
   label?: string
   accept?: string
   multiple?: boolean
+  maxSizeMB?: number
 } & ComponentProps<'input'>
 
 export const InputUpload = ({
@@ -24,10 +30,42 @@ export const InputUpload = ({
   label,
   accept,
   multiple,
+  maxSizeMB,
   ...props
 }: UploadInputProps) => {
-  const { control } = useFormContext()
+  const { control, setError } = useFormContext()
   const [fileNames, setFileNames] = useState<string[]>([])
+
+  const t = useTranslations()
+
+  const validateFilesSize = (files: File[]) =>
+    files.every((file) => {
+      if (file.size > (maxSizeMB ?? Infinity) * 1024 * 1024) {
+        setError(name, {
+          type: 'manual',
+          message: t('fileTooLarge', { maxFileSizeMb: maxSizeMB ?? 0 })
+        })
+        return false
+      }
+      return true
+    })
+
+  const onChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    field: ControllerRenderProps<FieldValues, string>
+  ) => {
+    const files = e.target.files ? Array.from(e.target.files) : []
+    if (!files.length) return
+
+    const isValidFileSizes = validateFilesSize(files)
+
+    if (isValidFileSizes) {
+      setFileNames(files.map((f) => f.name))
+      field.onChange(multiple ? files : (files[0] ?? null))
+
+      props.onChange?.(e)
+    }
+  }
 
   return (
     <FormField
@@ -41,13 +79,8 @@ export const InputUpload = ({
               type="file"
               accept={accept}
               multiple={multiple}
-              onChange={(e) => {
-                const files = e.target.files ? Array.from(e.target.files) : []
-                setFileNames(files.map((f) => f.name))
-                field.onChange(multiple ? files : (files[0] ?? null))
-
-                props.onChange?.(e)
-              }}
+              onChange={(e) => onChange(e, field)}
+              className="h-10 cursor-pointer"
             />
           </FormControl>
           {fileNames.length > 0 && (

@@ -14,5 +14,9 @@ export const ApiRoutes = {
   crypto: {
     root: '/crypto',
     updateMarkup: (id: number | string) => `/crypto/${id}/markup`
+  },
+
+  upload: {
+    root: '/upload'
   }
 } as const

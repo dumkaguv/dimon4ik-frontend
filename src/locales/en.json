@@ -48,6 +48,8 @@
   "documentFrontSide": "Document Front Side",
   "documentBackSide": "Document Back Side",
   "preview": "Preview",
+  "fileTooLarge": "File size must be less than {maxFileSizeMb}MB",
+  "fileInvalidType": "Only .jpg, .jpeg, .png, .webp formats are supported",
 
   "home": {
     "buyCryptoWithCard": "Buy cryptocurrency with card",

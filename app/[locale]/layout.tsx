@@ -10,11 +10,11 @@ import {
   TanstackProvider,
   ThemeProvider
 } from '@/src/config/providers'
-
 import { routing } from '@/src/i18n/routing'
 
 import type { ReactNode } from 'react'
 
+import 'yet-another-react-lightbox/styles.css'
 import './globals.css'
 
 const geistSans = Geist({

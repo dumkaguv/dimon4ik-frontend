@@ -3,54 +3,54 @@
 import Image from 'next/image'
 
 import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+import Lightbox from 'yet-another-react-lightbox'
+import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger
-} from '@/src/components/ui'
-
-import type { DialogTriggerProps } from '@radix-ui/react-dialog'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/src/components/ui'
 
 type Props = {
   file: File
-} & DialogTriggerProps
+}
 
-export const ImagePreview = ({ file, ...props }: Props) => {
+export const ImagePreview = ({ file }: Props) => {
+  const [isOpen, setIsOpen] = useState(false)
+
   const t = useTranslations()
+
   const src = URL.createObjectURL(file)
 
+  const onOpen = () => setIsOpen(true)
+  const onClose = () => setIsOpen(false)
+
   return (
-    <Dialog>
-      <DialogTrigger {...props}>
-        <Tooltip>
-          <TooltipContent>{t('preview')}</TooltipContent>
-          <TooltipTrigger asChild>
-            <Image
-              src={src}
-              width={120}
-              height={100}
-              alt=""
-              className="h-[100px] w-[120px] cursor-pointer rounded-sm object-cover"
-            />
-          </TooltipTrigger>
-        </Tooltip>
-      </DialogTrigger>
-      <DialogContent className="w-max !max-w-full">
-        <DialogTitle>{file.name}</DialogTitle>
-        <Image
-          src={src}
-          width={800}
-          height={600}
-          alt=""
-          className="!max-h-[80dvh] rounded-md"
-          style={{ width: 'auto', height: 'auto' }}
-        />
-      </DialogContent>
-    </Dialog>
+    <>
+      <Tooltip>
+        <TooltipContent>{t('preview')}</TooltipContent>
+        <TooltipTrigger asChild>
+          <Image
+            src={src}
+            width={120}
+            height={100}
+            onClick={onOpen}
+            alt=""
+            className="h-[100px] w-[120px] cursor-pointer rounded-sm object-cover"
+          />
+        </TooltipTrigger>
+      </Tooltip>
+      <Lightbox
+        open={isOpen}
+        close={onClose}
+        slides={[{ src }]}
+        plugins={[Zoom]}
+        zoom={{
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 1.5,
+          doubleTapDelay: 300,
+          doubleClickDelay: 300,
+          doubleClickMaxStops: 2
+        }}
+      />
+    </>
   )
 }

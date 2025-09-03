@@ -48,6 +48,8 @@
   "documentFrontSide": "Лицевая сторона документа",
   "documentBackSide": "Обратная сторона документа",
   "preview": "Превью",
+  "fileTooLarge": "Размер файла должен быть меньше {maxFileSizeMb}MB",
+  "fileInvalidType": "Поддерживаются только форматы .jpg, .jpeg, .png, .webp",
 
   "home": {
     "buyCryptoWithCard": "Покупай криптовалюту по карте",
