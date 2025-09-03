@@ -25,6 +25,8 @@ import { Api } from '@/src/services/apiClient'
 import { useAuthStore } from '@/src/stores'
 import { removeAccessToken, showApiErrors } from '@/src/utils'
 
+import { LocalizedLink } from '../LocalizedLink'
+
 export const Profile = () => {
   const { setUser, setIsPendingUser } = useAuthStore()
 
@@ -64,13 +66,23 @@ export const Profile = () => {
         align="end"
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <DropdownMenuItem onClick={() => navigate(paths.profile.root)}>
-          <SquareUserRound size={16} className="text-primary" />
-          {t('profile')}
+        <DropdownMenuItem asChild>
+          <LocalizedLink
+            href={paths.profile.root}
+            className="flex items-center gap-1"
+          >
+            <SquareUserRound size={16} className="text-primary" />
+            {t('profile')}
+          </LocalizedLink>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate(paths.profile.verification)}>
-          <ShieldCheck size={16} className="text-primary" />
-          {t('verification')}
+        <DropdownMenuItem asChild>
+          <LocalizedLink
+            href={paths.profile.verification}
+            className="flex items-center gap-1"
+          >
+            <ShieldCheck size={16} className="text-primary" />
+            {t('verification')}
+          </LocalizedLink>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

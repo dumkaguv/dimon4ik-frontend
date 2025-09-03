@@ -30,12 +30,17 @@ export const PersonalInfo = () => {
       isLoading={isPending}
     >
       <div className="flex items-center justify-between gap-10">
-        <Title level={4}>{t('email')}</Title>
+        <Title level={5}>{t('email')}</Title>
         <Paragraph>{personalInfo?.data?.email}</Paragraph>
       </div>
 
       <div className="flex items-center justify-between gap-10">
-        <Title level={4}>{t('verificationKYC')}</Title>
+        <Title level={5}>{t('username')}</Title>
+        <Paragraph>{personalInfo?.data?.profile?.username}</Paragraph>
+      </div>
+
+      <div className="flex items-center justify-between gap-10">
+        <Title level={5}>{t('verificationKYC')}</Title>
         {personalInfo?.data?.isVerifiedKYC ? (
           <Text className="flex items-center gap-1 text-green-500">
             <ShieldCheck size={16} />

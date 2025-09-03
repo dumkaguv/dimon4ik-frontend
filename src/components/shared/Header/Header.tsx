@@ -26,8 +26,6 @@ export const Header = () => {
     defineHeaderHeightCssVar()
   }, [])
 
-  console.log(isPendingUser)
-
   return (
     <header className="bg-card sticky top-0 z-10 flex items-center justify-between gap-5 rounded-b-md p-2 shadow-md">
       <Logo />

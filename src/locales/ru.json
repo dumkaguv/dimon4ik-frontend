@@ -50,6 +50,10 @@
   "preview": "Превью",
   "fileTooLarge": "Размер файла должен быть меньше {maxFileSizeMb}MB",
   "fileInvalidType": "Поддерживаются только форматы .jpg, .jpeg, .png, .webp",
+  "uploadSuccess": "Файл успешно загружен",
+  "pending": "В ожидании",
+  "weNotifyASAP": "Мы уведомим как можно скорее",
+  "accountIsNotVerified": "Аккаунт не подтвержден",
 
   "home": {
     "buyCryptoWithCard": "Покупай криптовалюту по карте",

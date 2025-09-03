@@ -50,6 +50,10 @@
   "preview": "Preview",
   "fileTooLarge": "File size must be less than {maxFileSizeMb}MB",
   "fileInvalidType": "Only .jpg, .jpeg, .png, .webp formats are supported",
+  "uploadSuccess": "File uploaded successfully",
+  "pending": "Pending",
+  "weNotifyASAP": "We will notify as soon as possible",
+  "accountIsNotVerified": "Account is not verified",
 
   "home": {
     "buyCryptoWithCard": "Buy cryptocurrency with card",

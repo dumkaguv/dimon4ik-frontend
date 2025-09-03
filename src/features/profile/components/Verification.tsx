@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { type ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -11,12 +11,15 @@ import { toast } from 'sonner'
 import { Card, ImagePreview, InputUpload } from '@/src/components/shared'
 import { Button, Form } from '@/src/components/ui'
 
+import { QueryKeys } from '@/src/constants'
 import {
   type DocumentsFormSchema,
   createDocumentsFormSchema
 } from '@/src/features/profile/zod'
 import { Api } from '@/src/services/apiClient'
 import { showApiErrors } from '@/src/utils'
+
+import { VerificationState } from './VerificationState'
 
 import type { UserDocument } from '@/src/types'
 
@@ -36,6 +39,15 @@ export const Verification = () => {
     resolver: zodResolver(schema)
   })
 
+  const {
+    data: userData,
+    refetch: refetchUserData,
+    isPending: isPendingUser
+  } = useQuery({
+    queryKey: [QueryKeys.users.me],
+    queryFn: Api.users.getUser
+  })
+
   const { mutateAsync: upload, isPending } = useMutation({
     mutationFn: ({ file, type }: UploadVariables) =>
       Api.upload.upload(file, type),
@@ -49,6 +61,7 @@ export const Verification = () => {
     if (documents.documentBACK) {
       await upload({ file: documents.documentBACK, type: 'BACK' })
     }
+    await refetchUserData()
     toast.success(t('uploadSuccess'))
   }
 
@@ -62,8 +75,19 @@ export const Verification = () => {
     }))
   }
 
+  const user = userData?.data
+  const isVerified = user?.isVerifiedKYC
+  const haveUploadedDocuments = user?.documents && user.documents?.length > 0
+  if (isVerified || haveUploadedDocuments) {
+    return <VerificationState user={user} />
+  }
+
   return (
-    <Card className="mx-auto h-fit w-full max-w-[750px]">
+    <Card
+      isLoading={isPendingUser}
+      rows={7}
+      className="mx-auto h-fit w-full max-w-[750px]"
+    >
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
