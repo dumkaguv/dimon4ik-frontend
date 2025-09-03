@@ -1,10 +1,14 @@
 'use client'
 
 import { useMutation } from '@tanstack/react-query'
-import { LogOut, ShieldCheck, SquareUserRound, User } from 'lucide-react'
-
+import {
+  LogOut,
+  Settings,
+  ShieldCheck,
+  SquareUserRound,
+  User
+} from 'lucide-react'
 import { useTranslations } from 'next-intl'
-
 import { toast } from 'sonner'
 
 import {
@@ -27,11 +31,18 @@ import { removeAccessToken, showApiErrors } from '@/src/utils'
 
 import { LocalizedLink } from '../LocalizedLink'
 
+import type { ReactNode } from 'react'
+
+type MenuItem = {
+  key: string
+  icon: ReactNode
+  label: string
+  href: string
+}
+
 export const Profile = () => {
-  const { setUser, setIsPendingUser } = useAuthStore()
-
+  const { setUser, setIsPendingUser, user } = useAuthStore()
   const navigate = useNavigate()
-
   const t = useTranslations()
 
   const { mutateAsync: logout } = useMutation({
@@ -50,6 +61,30 @@ export const Profile = () => {
 
   const onLogout = async () => await logout()
 
+  const menuItems: MenuItem[] = [
+    {
+      key: 'profile',
+      icon: <SquareUserRound size={16} className="text-primary" />,
+      label: t('profile'),
+      href: paths.profile.root
+    },
+    {
+      key: 'verification',
+      icon: <ShieldCheck size={16} className="text-primary" />,
+      label: t('verification'),
+      href: paths.profile.verification
+    }
+  ]
+
+  if (user?.role === 'ADMIN') {
+    menuItems.push({
+      key: 'admin',
+      icon: <Settings size={16} className="text-primary" />,
+      label: t('users'),
+      href: paths.profile.users
+    })
+  }
+
   return (
     <DropdownMenu>
       <Tooltip>
@@ -62,28 +97,19 @@ export const Profile = () => {
           </DropdownMenuTrigger>
         </TooltipTrigger>
       </Tooltip>
+
       <DropdownMenuContent
         align="end"
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <DropdownMenuItem asChild>
-          <LocalizedLink
-            href={paths.profile.root}
-            className="flex items-center gap-1"
-          >
-            <SquareUserRound size={16} className="text-primary" />
-            {t('profile')}
-          </LocalizedLink>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <LocalizedLink
-            href={paths.profile.verification}
-            className="flex items-center gap-1"
-          >
-            <ShieldCheck size={16} className="text-primary" />
-            {t('verification')}
-          </LocalizedLink>
-        </DropdownMenuItem>
+        {menuItems.map((item) => (
+          <DropdownMenuItem key={item.key} asChild>
+            <LocalizedLink href={item.href} className="flex items-center gap-1">
+              {item.icon}
+              {item.label}
+            </LocalizedLink>
+          </DropdownMenuItem>
+        ))}
 
         <DropdownMenuSeparator />
 

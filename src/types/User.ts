@@ -5,6 +5,7 @@ export type User = {
   email: string
   isActivated: boolean
   isVerifiedKYC: boolean
+  role: 'USER' | 'ADMIN'
   activationLink: string
   createdAt: string
   updatedAt: string

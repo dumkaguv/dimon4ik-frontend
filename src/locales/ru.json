@@ -54,6 +54,10 @@
   "pending": "В ожидании",
   "weNotifyASAP": "Мы уведомим как можно скорее",
   "accountIsNotVerified": "Аккаунт не подтвержден",
+  "noDocuments": "Документы отсутствуют",
+  "clickToSeeMore": "Нажмите, чтобы увидеть больше",
+  "documents": "Документы",
+  "users": "Пользователи",
 
   "home": {
     "buyCryptoWithCard": "Покупай криптовалюту по карте",

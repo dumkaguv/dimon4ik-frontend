@@ -54,6 +54,10 @@
   "pending": "În așteptare",
   "weNotifyASAP": "Vom notifica cât mai curând posibil",
   "accountIsNotVerified": "Contul nu este verificat",
+  "noDocuments": "Nu există documente",
+  "clickToSeeMore": "Click pentru a vedea mai mult",
+  "documents": "Documente",
+  "users": "Utilizatori",
 
   "home": {
     "buyCryptoWithCard": "Cumpără criptovalută cu cardul",

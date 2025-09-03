@@ -11,3 +11,8 @@ export const getUserById = async (id: string) => {
   return (await axiosInstance.get<ApiResponse<User>>(`${paths.users.byId(id)}`))
     .data
 }
+
+export const getAllUsers = async () => {
+  return (await axiosInstance.get<ApiResponse<User[]>>(`${paths.users.all}`))
+    .data
+}

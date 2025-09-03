@@ -54,6 +54,10 @@
   "pending": "Pending",
   "weNotifyASAP": "We will notify as soon as possible",
   "accountIsNotVerified": "Account is not verified",
+  "noDocuments": "No documents available",
+  "clickToSeeMore": "Click to see more",
+  "documents": "Documents",
+  "users": "Users",
 
   "home": {
     "buyCryptoWithCard": "Buy cryptocurrency with card",

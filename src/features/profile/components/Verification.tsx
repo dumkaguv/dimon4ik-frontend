@@ -82,6 +82,8 @@ export const Verification = () => {
     return <VerificationState user={user} />
   }
 
+  console.log(user)
+
   return (
     <Card
       isLoading={isPendingUser}

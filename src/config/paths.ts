@@ -14,11 +14,13 @@ export const paths = {
   users: {
     root: `${USERS_PREFIX}`,
     me: `${USERS_PREFIX}/me`,
-    byId: (id: string) => `${USERS_PREFIX}/${id}`
+    byId: (id: string) => `${USERS_PREFIX}/${id}`,
+    all: `${USERS_PREFIX}/all`
   },
 
   profile: {
     root: `${AUTHORIZED}${PROFILE_PREFIX}`,
-    verification: `${AUTHORIZED}${PROFILE_PREFIX}/verification`
+    verification: `${AUTHORIZED}${PROFILE_PREFIX}/verification`,
+    users: `${AUTHORIZED}${PROFILE_PREFIX}${USERS_PREFIX}`
   }
 } as const
