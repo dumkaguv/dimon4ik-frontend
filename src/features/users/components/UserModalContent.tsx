@@ -36,8 +36,10 @@ export const UserModalContent = ({ user }: Props) => {
   const onAcceptDocuments = async () => await acceptDocuments()
 
   return (
-    <PopoverContent className="min-h-[20dvh] w-fit min-w-[300px] p-6">
-      <Title level={5}>{t('documents')}</Title>
+    <PopoverContent className="p-3">
+      <Title level={5} className="mb-3">
+        {t('documents')}
+      </Title>
 
       {slides.length > 0 ? (
         <ImagePreview srcs={user.documents?.map((d) => d.fileUrl) ?? []} />
