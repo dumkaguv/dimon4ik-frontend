@@ -14,6 +14,10 @@ import {
   AlertDialogTrigger
 } from '@/src/components/ui'
 
+import type {
+  AlertDialogActionProps,
+  AlertDialogCancelProps
+} from '@radix-ui/react-alert-dialog'
 import type { ReactNode } from 'react'
 
 type Props = {
@@ -22,6 +26,8 @@ type Props = {
   description?: string
   cancelText?: string
   okText?: string
+  okButtonProps?: AlertDialogActionProps
+  cancelProps?: AlertDialogCancelProps
 }
 
 export const ConfirmModal = ({
@@ -29,7 +35,9 @@ export const ConfirmModal = ({
   dialogTitle,
   description,
   cancelText,
-  okText
+  okText,
+  okButtonProps,
+  cancelProps
 }: Props) => {
   const t = useTranslations()
 
@@ -41,13 +49,18 @@ export const ConfirmModal = ({
           <AlertDialogTitle>
             {t(dialogTitle ?? 'areYouAbsolutelySure')}
           </AlertDialogTitle>
-          {description && (
-            <AlertDialogDescription>{t(description)}</AlertDialogDescription>
-          )}
+
+          <AlertDialogDescription>
+            {description ? t(description) : ''}
+          </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>{t(cancelText ?? 'cancel')}</AlertDialogCancel>
-          <AlertDialogAction>{t(okText ?? 'confirm')}</AlertDialogAction>
+          <AlertDialogCancel {...cancelProps}>
+            {t(cancelText ?? 'cancel')}
+          </AlertDialogCancel>
+          <AlertDialogAction {...okButtonProps}>
+            {t(okText ?? 'confirm')}
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

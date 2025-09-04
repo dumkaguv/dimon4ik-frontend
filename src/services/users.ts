@@ -16,3 +16,11 @@ export const getAllUsers = async () => {
   return (await axiosInstance.get<ApiResponse<User[]>>(`${paths.users.all}`))
     .data
 }
+
+export const updateUser = async (id: string, isVerifiedKYC?: boolean) => {
+  return (
+    await axiosInstance.patch<ApiResponse<User>>(`${paths.users.byId(id)}`, {
+      isVerifiedKYC
+    })
+  ).data
+}

@@ -3,7 +3,7 @@
 import { CircleUser } from 'lucide-react'
 
 import { Card, Typography } from '@/src/components/shared'
-import { Dialog, DialogTrigger } from '@/src/components/ui'
+import { Popover, PopoverTrigger } from '@/src/components/ui'
 
 import { StatusKYC } from './StatusKYC'
 import { UserModalContent } from './UserModalContent'
@@ -18,8 +18,8 @@ type Props = {
 
 export const UserCard = ({ user }: Props) => {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <Popover>
+      <PopoverTrigger asChild>
         <Card className="cursor-pointer p-4">
           <div className="flex gap-2">
             <CircleUser size={32} className="text-muted-foreground" />
@@ -35,8 +35,8 @@ export const UserCard = ({ user }: Props) => {
             </div>
           </div>
         </Card>
-      </DialogTrigger>
+      </PopoverTrigger>
       <UserModalContent user={user} />
-    </Dialog>
+    </Popover>
   )
 }

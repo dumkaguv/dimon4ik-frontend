@@ -20,34 +20,18 @@ type Props = {
 export const ImagePreview = ({ file, src, files, srcs, className }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
-
   const t = useTranslations()
 
   const slides = useMemo(() => {
-    if (files && files.length > 0) {
+    if (files?.length)
       return files.map((f) => ({ src: URL.createObjectURL(f) }))
-    }
-    if (srcs && srcs.length > 0) {
-      return srcs.map((s) => ({ src: s }))
-    }
-    if (file) {
-      return [{ src: URL.createObjectURL(file) }]
-    }
-    if (src) {
-      return [{ src }]
-    }
+    if (srcs?.length) return srcs.map((s) => ({ src: s }))
+    if (file) return [{ src: URL.createObjectURL(file) }]
+    if (src) return [{ src }]
     return []
   }, [file, src, files, srcs])
 
-  const onOpen = (index: number) => {
-    setCurrentIndex(index)
-    setIsOpen(true)
-  }
-  const onClose = () => setIsOpen(false)
-
-  if (slides.length === 0) {
-    return null
-  }
+  if (!slides.length) return null
 
   return (
     <>
@@ -60,7 +44,10 @@ export const ImagePreview = ({ file, src, files, srcs, className }: Props) => {
                 src={slide.src}
                 width={120}
                 height={100}
-                onClick={() => onOpen(index)}
+                onClick={() => {
+                  setIsOpen(true)
+                  setCurrentIndex(index)
+                }}
                 alt=""
                 className={cn(
                   'h-[100px] w-[120px] cursor-pointer rounded-sm object-cover',
@@ -74,10 +61,13 @@ export const ImagePreview = ({ file, src, files, srcs, className }: Props) => {
 
       <Lightbox
         open={isOpen}
-        close={onClose}
+        close={() => setIsOpen(false)}
         slides={slides}
         index={currentIndex}
         plugins={[Zoom]}
+        portal={{
+          root: typeof document !== 'undefined' ? document.body : undefined
+        }}
         zoom={{
           maxZoomPixelRatio: 3,
           zoomInMultiplier: 1.5,
