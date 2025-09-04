@@ -3,6 +3,7 @@
 import { useMutation } from '@tanstack/react-query'
 import {
   LogOut,
+  Settings,
   ShieldCheck,
   SquareUserRound,
   User,
@@ -78,10 +79,16 @@ export const Profile = () => {
 
   if (user?.role === 'ADMIN') {
     menuItems.push({
-      key: 'admin',
+      key: 'admin-users',
       icon: <UserCog size={16} className="text-primary" />,
       label: t('users'),
       href: paths.profile.users
+    })
+    menuItems.push({
+      key: 'admin-settings',
+      icon: <Settings size={16} className="text-primary" />,
+      label: t('settings'),
+      href: paths.settings.root
     })
   }
 

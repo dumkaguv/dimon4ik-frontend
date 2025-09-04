@@ -2,6 +2,7 @@ const AUTH_PREFIX = '/auth'
 const PROFILE_PREFIX = '/profile'
 const USERS_PREFIX = '/users'
 const AUTHORIZED = '/authorized'
+const SETTINGS = '/settings'
 
 export const paths = {
   root: '/',
@@ -22,5 +23,9 @@ export const paths = {
     root: `${AUTHORIZED}${PROFILE_PREFIX}`,
     verification: `${AUTHORIZED}${PROFILE_PREFIX}/verification`,
     users: `${AUTHORIZED}${PROFILE_PREFIX}${USERS_PREFIX}`
+  },
+
+  settings: {
+    root: `${AUTHORIZED}${PROFILE_PREFIX}${SETTINGS}`
   }
 } as const

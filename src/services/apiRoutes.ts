@@ -13,6 +13,7 @@ export const ApiRoutes = {
 
   crypto: {
     root: '/crypto',
+    updatePrice: ()
     updateMarkup: (id: number | string) => `/crypto/${id}/markup`
   },
 

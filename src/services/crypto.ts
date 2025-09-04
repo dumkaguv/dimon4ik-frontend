@@ -17,3 +17,12 @@ export const updateCryptoMarkup = async (id: number, markupPct: number) => {
     )
   ).data
 }
+
+export const updateCryptoPrice = async (price: number, source: string) => {
+  return (
+    await axiosInstance.patch<ApiResponse<Crypto>>(
+      ApiRoutes.crypto.updateMarkup(id),
+      { source }
+    )
+  ).data
+}

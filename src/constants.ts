@@ -14,6 +14,7 @@ export const QueryKeys = {
   },
 
   crypto: {
-    root: 'crypto'
+    root: 'crypto',
+    prices: 'cryptoPrices'
   }
 } as const
