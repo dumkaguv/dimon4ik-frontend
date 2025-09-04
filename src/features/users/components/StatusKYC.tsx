@@ -30,10 +30,12 @@ export const StatusKYC = ({ user }: Props) => {
   }
 
   if (areDocumentsUploaded) {
-    ;<Text className="flex items-center gap-1 text-yellow-500">
-      <Loader2 size={16} className="animate-spin" />
-      {t('pending')}
-    </Text>
+    return (
+      <Text className="flex items-center gap-1 text-yellow-500">
+        <Loader2 size={16} className="animate-spin" />
+        {t('pending')}
+      </Text>
+    )
   }
 
   return (

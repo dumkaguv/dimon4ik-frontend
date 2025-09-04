@@ -6,7 +6,7 @@ import { Card, Typography } from '@/src/components/shared'
 import { Popover, PopoverTrigger } from '@/src/components/ui'
 
 import { StatusKYC } from './StatusKYC'
-import { UserModalContent } from './UserModalContent'
+import { UserPopupContent } from './UserPopupContent'
 
 import type { User } from '@/src/types'
 
@@ -20,7 +20,7 @@ export const UserCard = ({ user }: Props) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Card className="cursor-pointer p-4">
+        <Card className="cursor-pointer p-4 transition-all duration-200 hover:scale-[1.025] hover:shadow-lg">
           <div className="flex gap-2">
             <CircleUser size={32} className="text-muted-foreground" />
 
@@ -36,7 +36,7 @@ export const UserCard = ({ user }: Props) => {
           </div>
         </Card>
       </PopoverTrigger>
-      <UserModalContent user={user} />
+      <UserPopupContent user={user} />
     </Popover>
   )
 }

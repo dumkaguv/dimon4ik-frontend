@@ -20,7 +20,7 @@ type Props = {
   user: User
 }
 
-export const UserModalContent = ({ user }: Props) => {
+export const UserPopupContent = ({ user }: Props) => {
   const t = useTranslations()
   const { mutateAsync: acceptDocuments, isPending } = useMutation({
     mutationFn: () => Api.users.updateUser(String(user.userId), true),
@@ -49,7 +49,9 @@ export const UserModalContent = ({ user }: Props) => {
 
       {slides.length > 0 && !user.isVerifiedKYC && (
         <ConfirmModal okButtonProps={{ onClick: onAcceptDocuments }}>
-          <Button loading={isPending}>{t('acceptDocuments')}</Button>
+          <Button loading={isPending} className="mt-4 w-full">
+            {t('acceptDocuments')}
+          </Button>
         </ConfirmModal>
       )}
     </PopoverContent>
